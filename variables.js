@@ -58,3 +58,11 @@ console.log(etiqueta);
 etiqueta = "horas: " + 12 + 12;
 // comparaciones
 // > < >= <= == !=
+
+// jugando con tipos
+
+console.log(1 + 1);
+console.log("1" + "1");
+console.log("1" + 1);
+console.log(1 + "1");
+console.log("1" * "1");
