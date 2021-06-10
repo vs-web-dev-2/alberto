@@ -11,7 +11,8 @@ function descartarBici(bici) {
 }
 function puedoComprar(bici) {
   // rojo o que no sea de carretera pero de menos de 350 euros
-  return (bici.color === "roja" || bici.esDeCarretera === false) && bici.precio <= 350;
+  let puedoComprar = (bici.color === "roja" || bici.esDeCarretera === false) && bici.precio <= 350;
+  return puedoComprar;
 }
 
 if (puedoComprar(bici_1)) {
