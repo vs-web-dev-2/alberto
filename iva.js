@@ -11,7 +11,7 @@ function imprimir(iva, tipoIva, base, valor) {
   );
 }
 
-// console.log("El IVA normla de 10 es " + calcularIva(10));
+// console.log("El IVA normal de 10 es " + calcularIva(10));
 // console.log("El IVA reducido de 10 es " + calcularIva(10, 4));
 // imprimir("El IVA normal de 10 es", calcularIva(10));
 // imprimir("El IVA reducido de 10 es", calcularIva(10, 4));
