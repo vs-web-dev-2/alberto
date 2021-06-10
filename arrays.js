@@ -18,12 +18,21 @@ recorrerArray(colores);
 colores.push("marrón");
 recorrerArray(colores);
 
-colores.forEach(function imprimir(color) {
-  console.log(color);
+function imprimir(argumento) {
+  console.log(argumento);
+}
+imprimir("eclipse");
+
+colores.forEach(imprimir);
+// imprimir(colores[0]);
+// imprimir(colores[1]);
+
+colores.forEach(function imprimir(c) {
+  console.log(c);
 });
 
-colores.forEach(function (color) {
-  console.log(color);
+colores.forEach(function (kk) {
+  console.log(kk);
 });
 
-colores.forEach((color) => console.log(color));
+colores.forEach((x) => console.log(x));
