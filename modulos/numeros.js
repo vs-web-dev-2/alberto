@@ -12,7 +12,8 @@ function obtenerPares1(numeros) {
   }
   return pares;
 }
-console.log(obtenerPares1(numeros));
+// console.log(obtenerPares1(numeros));
+// console.log(obtenerPares1([3, 12, 5, 4, 8, 48, 49]));
 
 function obtenerMultiplos1(numeros, factor) {
   let result = [];
@@ -24,7 +25,15 @@ function obtenerMultiplos1(numeros, factor) {
   }
   return result;
 }
-console.log(obtenerMultiplos1(numeros, 3));
+// let multiplo = 3;
+// console.log(obtenerMultiplos1(numeros, multiplo));
+// console.log(obtenerMultiplos1(numeros, 3));
+// console.log(obtenerMultiplos1([3, 12, 5, 4, 8, 48, 49], 3));
+// console.log(obtenerMultiplos1(numeros, "portugal"));
+// console.log(obtenerMultiplos1(3, 3));
+// console.log(obtenerMultiplos1({ marca: "bh" }, 3));
+// console.log(obtenerMultiplos1(["españa", "francia"], 3));
+// console.log(obtenerMultiplos1(["2", "6"], 3));
 
 function obtenerCriterio1(numeros, funcionCriterio) {
   let result = [];
@@ -37,6 +46,17 @@ function obtenerCriterio1(numeros, funcionCriterio) {
   return result;
 }
 console.log(obtenerCriterio1(numeros, esPrimo));
+console.log(obtenerCriterio1(numeros, esMultiplo));
+console.log(obtenerCriterio1(numeros, esPar));
+console.log(
+  obtenerCriterio1(numeros, function (numero) {
+    if (numero % 2 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+);
 
 function esPar(numero) {
   if (numero % 2 === 0) {
@@ -46,7 +66,7 @@ function esPar(numero) {
   }
 }
 
-function esMultiplo(numero, factor) {
+function esMultiplo(numero, factor = 1) {
   if (numero % factor === 0) {
     return true;
   } else {
