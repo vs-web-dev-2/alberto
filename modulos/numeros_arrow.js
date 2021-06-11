@@ -45,19 +45,21 @@ function obtenerCriterio1(numeros, funcionCriterio) {
   }
   return result;
 }
-console.log(obtenerCriterio1(numeros, esPrimo));
-console.log(obtenerCriterio1(numeros, esMultiplo));
-console.log(obtenerCriterio1(numeros, esPar));
-// función anónima
-console.log(
-  obtenerCriterio1(numeros, function (numero) {
-    if (numero % 2 === 0) {
-      return true;
-    } else {
-      return false;
-    }
-  })
-);
+// console.log(obtenerCriterio1(numeros, esPrimo));
+// console.log(obtenerCriterio1(numeros, esMultiplo));
+// console.log(obtenerCriterio1(numeros, esPar));
+// // función anónima arrow
+// console.log(
+//   obtenerCriterio1(numeros, (numero) => {
+//     if (numero % 2 === 0) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   })
+// );
+
+// console.log(obtenerCriterio1(numeros, (numero) => (numero % 2 === 0 ? true : false)));
 
 function esPar(numero) {
   if (numero % 2 === 0) {
@@ -66,6 +68,8 @@ function esPar(numero) {
     return false;
   }
 }
+
+let esPar2 = (numero) => (numero % 2 === 0 ? true : false);
 
 function esMultiplo(numero, factor = 1) {
   if (numero % factor === 0) {
@@ -83,3 +87,28 @@ function esPrimo(numero) {
   }
   return false;
 }
+
+function obtenerCriterioGeneral(array, funcionCriterio) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    let numero = array[i];
+    if (funcionCriterio(numero)) {
+      result.push(numero);
+    }
+  }
+  return result;
+}
+let paises = ["españa", "francia", "eeuu"];
+let empezarPorE = (pais) => pais[0] == "e";
+
+console.log(obtenerCriterioGeneral(paises, empezarPorE));
+console.log(obtenerCriterioGeneral(["ernesto", "luis"], empezarPorE));
+let productos = [
+  { nombre: "libreta", precio: 1.8, iva: "normal" },
+  { nombre: "lapiz", precio: 0.5, iva: "normal" },
+  { nombre: "libro", precio: 19.9, iva: "reducido" },
+];
+console.log(obtenerCriterioGeneral(productos, (producto) => producto.precio > 10));
+
+console.log(paises.filter(empezarPorE));
+console.log(productos.filter((producto) => producto.iva === "normal"));
