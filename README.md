@@ -1,5 +1,11 @@
 # Alberto Basalo
 
-Programo en JavaScript
+## Conocimientos
 
-Vivo en Galicia
+- Programo en **JavaScript**
+
+- Utilizamos **Git**
+
+## Datos personales
+
+- Vivo en _Galicia_
