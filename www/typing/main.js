@@ -40,12 +40,19 @@ nodoTecleo.addEventListener("input", function onInput() {
   let tiempo = (ahora - inicio) / 1000;
   if (frase === loTecleado) {
     nodoMensaje.innerText = "🎉🌈 enhorabuena ⏳ has tardado " + tiempo;
+    nodoTecleo.classList.remove("va-bien", "va-mal");
+    nodoTecleo.classList.add("terminado");
     haTerminado = true;
   } else {
     if (frase.startsWith(loTecleado)) {
       nodoMensaje.innerText = "✅ aún no está completa ⏳ llevas " + tiempo;
+      nodoTecleo.classList.remove("terminado", "va-mal");
+      nodoTecleo.classList.add("va-bien");
     } else {
       nodoMensaje.innerText = "🔥 vas mal ⏳ llevas " + tiempo;
+      nodoTecleo.classList.remove("terminado");
+      nodoTecleo.classList.remove("va-bien");
+      nodoTecleo.classList.add("va-mal");
     }
   }
 });
