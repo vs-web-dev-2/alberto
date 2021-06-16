@@ -33,7 +33,7 @@ nodoBotonEmpezar.addEventListener("click", () => {
   inicio = Date.now();
 });
 
-nodoTecleo.addEventListener("input", function onInput() {
+function onInput() {
   if (haTerminado) return;
   const loTecleado = nodoTecleo.value;
   const ahora = Date.now();
@@ -55,4 +55,6 @@ nodoTecleo.addEventListener("input", function onInput() {
       nodoTecleo.classList.add("va-mal");
     }
   }
-});
+}
+
+nodoTecleo.addEventListener("input", onInput);
