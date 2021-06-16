@@ -1,3 +1,7 @@
+:root {
+  --azul: hsl(229, 93%, 84%);
+}
+
 html {
   background-color: bisque;
 }
@@ -22,12 +26,12 @@ main h1 {
 }
 
 .azul {
-  color: blue;
+  color: var(--azul);
 }
 
 .amarillo {
   color: yellow;
-  background-color: blue;
+  background-color: var(--azul);
 }
 
 .rojo {
@@ -43,7 +47,7 @@ a.rojo {
 }
 
 #empresa {
-  border-color: dodgerblue;
+  border-color: var(--azul);
   border-width: 4px;
 }
 
