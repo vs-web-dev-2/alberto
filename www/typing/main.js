@@ -22,22 +22,30 @@ console.log(tecleado);
 
 const nodoMensaje = document.getElementById("mensaje");
 
+let inicio;
+let haTerminado = false;
+
 const nodoBotonEmpezar = document.getElementById("empezar");
 nodoBotonEmpezar.addEventListener("click", () => {
   console.log("✨ click en empezar");
   nodoTecleo.value = "";
   nodoMensaje.innerText = "🎏 ánimo";
+  inicio = Date.now();
 });
 
 nodoTecleo.addEventListener("input", function onInput() {
+  if (haTerminado) return;
   const loTecleado = nodoTecleo.value;
+  const ahora = Date.now();
+  let tiempo = (ahora - inicio) / 1000;
   if (frase === loTecleado) {
-    nodoMensaje.innerText = "🎉🌈 enhorabuena";
+    nodoMensaje.innerText = "🎉🌈 enhorabuena ⏳ has tardado " + tiempo;
+    haTerminado = true;
   } else {
     if (frase.startsWith(loTecleado)) {
-      nodoMensaje.innerText = "✅ aún no está completa ⏳";
+      nodoMensaje.innerText = "✅ aún no está completa ⏳ llevas " + tiempo;
     } else {
-      nodoMensaje.innerText = "🔥 vas mal";
+      nodoMensaje.innerText = "🔥 vas mal ⏳ llevas " + tiempo;
     }
   }
 });
