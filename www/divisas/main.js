@@ -10,9 +10,22 @@ const bodyJson = request.then((response) => response.json());
 bodyJson.then(procesarDatos);
 
 function procesarDatos(data) {
-  const fecha = data.date;
-  console.log("fecha: " + fecha);
-  nodoFecha.innerText = fecha;
+  const fechaString = data.date;
+  console.log("fecha: " + fechaString);
+
+  const fechaNumber = Date.parse(fechaString);
+  console.log("fechaNumber: " + fechaNumber);
+
+  const fechaDate = new Date(fechaString);
+  console.log(fechaDate);
+
+  const fechaEuropea = `${fechaDate.getDate()}/${
+    fechaDate.getMonth() + 1
+  }/${fechaDate.getFullYear()}`;
+  // 16/5/2021
+  console.log(fechaEuropea);
+  nodoFecha.innerText = fechaEuropea;
+
   const objetoCotizaciones = data.rates;
 
   const claves = Object.keys(objetoCotizaciones);
