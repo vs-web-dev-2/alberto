@@ -10,31 +10,26 @@ const bodyJson = request.then((response) => response.json());
 bodyJson.then(procesarDatos);
 
 function procesarDatos(data) {
-  const fecha = data.date; // data["date"]
+  const fecha = data.date;
   console.log("fecha: " + fecha);
   nodoFecha.innerText = fecha;
-  const objetoCotizaciones = data.rates; // data["rates"]
-
-  // console.log(objetoCotizaciones);
-
-  // {
-  //   "USD" : 1.4,
-  //   "CHF" : 4
-  // }
+  const objetoCotizaciones = data.rates;
 
   const claves = Object.keys(objetoCotizaciones);
 
-  // console.log(claves);
-  // ["USD", "CFH"]
-
-  // console.log(objetoCotizaciones.USD);
-  // console.log(objetoCotizaciones["USD"]);
-  // 1.4
-
-  claves.forEach((clave) => {
-    // console.log(clave + " : " + objetoCotizaciones[clave]);
+  claves.forEach((divisa) => {
     const nodoDivisaItem = document.createElement("li");
-    nodoDivisaItem.innerText = clave + " : " + objetoCotizaciones[clave];
+
+    const nodoDivisaSpan = document.createElement("span");
+    nodoDivisaSpan.innerText = divisa;
+    nodoDivisaSpan.className = "divisa";
+
+    const nodoCotizacionSpan = document.createElement("span");
+    nodoCotizacionSpan.innerText = objetoCotizaciones[divisa];
+    nodoCotizacionSpan.className = "cotizacion";
+
+    nodoDivisaItem.appendChild(nodoDivisaSpan);
+    nodoDivisaItem.appendChild(nodoCotizacionSpan);
     nodoCotizacionesList.appendChild(nodoDivisaItem);
   });
 }
