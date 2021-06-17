@@ -5,8 +5,13 @@ body {
 .divisa {
   font-weight: bold;
   margin-right: 10px;
+  width: 50px;
+  display: inline-block;
 }
 
 .cotizacion {
+  width: 100px;
+  text-align: right;
   font-style: italic;
+  display: inline-block;
 }
